@@ -1,0 +1,20 @@
+Coputation Graph
+    The compuation of an NN is organized in terms of:
+        Forward Pass - forward propogation - compute the output of the NN 
+        Backward Pass - backward propogation - compute the gradient or derivatives
+    A Computational Graph is handy or helpful when there is some special output variable that you want or need to optimize
+    
+    In the case of logistic regression J
+        J(a, b, c) = 3(a + bc)
+        a = 5, b = 3, c = 2
+            we define bc = u
+            a + bc = v = a + u
+            3(a + bc) = J = 3v
+            
+            Forward Propogation graph on paper
+        
+        Backward propogation goes right to left to calculate the derivatives. it's on paper
+            We use the derivatives in gradient descent
+            
+    Gradient Descent in the logistic regression scenario. it's on paper
+    

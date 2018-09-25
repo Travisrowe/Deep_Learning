@@ -1,0 +1,14 @@
+array functions with numpy
+numpy.zeros(10) #makes an array with 10 0s in it
+numpy.reshape(4,3) #reshapes an array, I believe preserving every value inside the original that will fit in the new
+
+multiplying matrices in Anaconda is element-wise UNLESS you use numpy.dot(array1, array2). This is real matrix multiplication.
+Matrix multiplication:
+    A(i, j) * B(k, m) = C(i, m)
+        if j = k, you can multiply these matrices
+        else, you cannot
+        
+numpy.transpose is also a function 
+
+HW? Create a numpy matrix filled with three 2x2 matrices, filled with 1-12 [1, 2]
+                                                                           [3, 4], is one matrix inside the large matrix

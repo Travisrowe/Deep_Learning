@@ -1,0 +1,16 @@
+Binary Classification - the kind of probes for which the output will be
+
+Understand how Images should be stored in memory
+    Train a classifier
+    input = Image represented by an input feature vector, x
+    Idea is to predict if we have a cat or not
+        We use three matrices, R, G, B.
+        
+Logistic Regression - a learning algorithm that is used in supervised learning
+    Parameters used in Logistic Regression
+    
+Notation
+    (x, y) - a single training example
+    x - Nx dimensional
+    y - {0, 1}
+    m - # training examples - {(x(1), y(1)), ...(x(m), y(m))

@@ -1,0 +1,61 @@
+Neural Network is a sophisticated algorithm inspired by the brain
+Input - Data
+Processing - node = activation unit
+Output
+
+Linear Regression
+y = mx + b
+
+Algebra - used in matrices
+Calculus - increase speed of learning
+Statistics and Probability - to decide what will happen and what is good about it.
+
+    ex) predict the price of houses
+        We know that
+        a)  House prices are positive, not negative
+        b)  There is an input parameter - x, the size of the house 
+        c)  There is an output - Price
+        d)  There is a function
+        
+        Neuron = node = activation unit, they all mean the same. They are what you feed input into, the neuron processes it and sends output.
+            Inside the node is an activation function
+            
+            Activation Function has multiple classes
+                Sigmoid
+                RELU - Rectify Linear Unit
+                Tan(h)
+                
+                These all have graph meanings
+                
+    ex) Multiple NNs - Price = f(size, number of rooms, zip code, wealth of neighborhood)
+        Size of house + rooms -> family size
+        zip code -> workability
+        zip code + wealth -> school quality
+        Family size + workability + school quality -> Price
+    
+Supervised Learning
+    Characteristics
+    a) you are given a data set
+    b) you know what your correct output should look like so you have
+        1) a real output, y 
+        2) a predicted output, y^ (y hat)
+        Check difference between y and y^
+    S.L. categories
+        1) Regression problems
+        2) Classification problems
+     
+    Regression problems - try to map input variables to some continuous function
+
+    Classification problems - attempting to map input variables into some discrete category
+        In other words, you are attempting to predict results into a discrete category.
+        
+    Standard NN
+    CNN - Conv Neural Network
+    RMN
+    Hybrid customizeds
+    
+    Data Classification
+        Structured - It makes reference to data that has a very well-defined meaning
+            ex) a table in a database
+        Un-structured - The opposit
+            ex) Audio, image, text
