@@ -10,7 +10,7 @@ update parameters with
 forward propagation
 	A = activation_function(np.dot(w.T, X) + b)
 	
-	# (1/m) * logistic loss
+	# (-1/m) * logistic loss
 	cost = (-1 / m) * (np.sum(Y * np.log(A) + (1 - Y) * np.log(1 - A))) 
 		
 	
@@ -21,7 +21,7 @@ Activation functions
 	sigmoid - good for binary classifications
 	
 	hyperbolic tangent - tanh(z) = (e^z - (e^-z)) / (e^z + e^-z) # this is in the range -1 to 1
-		#this is pretty much a caled, z shifted sigmoid function
+		#this is pretty much a scaled, z shifted sigmoid function
 		
 	ReLU (Rectified Linear Unit) - 0 when z is negative, but otherwise speeds up Neural Network
 	Leaky ReLU - very small (but not 0) when z is negative
