@@ -1,0 +1,75 @@
+Deep Learning final review notes
+
+nx training examples, m input features = an X matrix of size (nx, m)
+
+logistic loss = (np.sum(Y * np.log(A) + (1 - Y) * np.log(1 - A)))
+
+update parameters with 
+	theta = theta - alpha * dTheta
+	
+forward propagation
+	A = activation_function(np.dot(w.T, X) + b)
+	
+	# (1/m) * logistic loss
+	cost = (-1 / m) * (np.sum(Y * np.log(A) + (1 - Y) * np.log(1 - A))) 
+		
+	
+	dw = (1/m) * np.dot(X, (A-Y).T)
+	db = (1/m) * np.sum(A-Y)
+
+Activation functions	
+	sigmoid - good for binary classifications
+	
+	hyperbolic tangent - tanh(z) = (e^z - (e^-z)) / (e^z + e^-z) # this is in the range -1 to 1
+		#this is pretty much a caled, z shifted sigmoid function
+		
+	ReLU (Rectified Linear Unit) - 0 when z is negative, but otherwise speeds up Neural Network
+	Leaky ReLU - very small (but not 0) when z is negative
+	
+	use non-linear (RELU) in hidden layers, use linear in output layers
+	
+Normalization
+	Improves learning speed by putting input features into similar scales
+	
+	two steps
+		1)	subtract or zero out the mean
+			mean = (1/m) * np.sum(X)
+			X = X - mean
+		2)	normalize the variances
+				T^2 = (1/m) * np.sum(X ** 2) #element-wise square
+				X = X / T^2
+				
+Vanishing and exploding gradients
+	consequences: derivates and slopes get very small or very large, slowing down learning rate or speeding it too much, respectively
+	solutions: initialize weights appropriately for your activation function
+	
+	W[l] = np.random.rand(layers_dims[l], layers_dims[l - 1]) * #something
+		#something is different for different activation_functions
+		#n[l] is number of input features fed into each neuron
+		ReLU: np.sqrt(2 / n[l - 1])
+		
+		tanh (Xavier initialization): np.sqrt(1 / n[l - 1])
+		tanh (Yozhua Bengic): np.sqrt(2 / (n[l - 1] + n[l]))
+		
+Dropout - By setting a probability of keeping a node, keep_prob, you can randomly select a value between 0 and 1 which will determine if 
+		we deactivate a node, or set it to 0. This gives us a smaller, but not less deep, Neural Network and is one solution to overfitting.
+		
+		not applied to hidden layers
+		
+Mini-batch size should be a power of 2 to maximize cache efficiency
+
+Regularization - standard way to avoid overfitting
+	Modify cost function - forward propagation
+		cost = cross-entropy cost + np.sum(np.square(W[l])) * (1/m) * lambd / 2
+	backward propagation
+		dW[l] = (lambd / m) * W[l]
+		
+Gradient Checking
+	have some epsilon approx equal to 10^-7
+	thetaplus = theta + epsilon
+	thetaminus = theta - epsilon
+	J_plus = forward_propagation(thetaplus)
+	J_minus = forward_propagation(thetaminus)
+	gradapprox = (J_plus - J_minus) / (2 * epsilon)
+	
+	if gradapprox < 10-9 or so, your gradient is good
